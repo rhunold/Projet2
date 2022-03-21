@@ -1,6 +1,4 @@
-import requests
-from bs4 import BeautifulSoup
-import csv
+import scrapping_product
 
 # lien de la page à scrapper
 url = "https://books.toscrape.com/catalogue/category/books/childrens_11/"
@@ -20,11 +18,11 @@ link_list = []
 
 # tant qu'il y a de la pagination
 while url in url_list:
-    reponse = requests.get(url)
+    reponse = scrapping_product.requests.get(url)
     page = reponse.content 
     
     # transforme (parse) le HTML en objet BeautifulSoup
-    soup = BeautifulSoup(page, "html.parser")
+    soup = scrapping_product.BeautifulSoup(page, "html.parser")
 
     nextpage = soup.find("li", class_="next")
 
