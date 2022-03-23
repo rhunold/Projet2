@@ -7,12 +7,8 @@ url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
 reponse = requests.get(url)
 page = reponse.content
 
-# affiche la page HTML
-# print(page)
-
 # transforme (parse) le HTML en objet BeautifulSoup
 soup = BeautifulSoup(page, "html.parser")
-
 
 #  ajout de l'url à une list
 url_list = [url]
