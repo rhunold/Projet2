@@ -33,7 +33,7 @@ for category in soup.select('#default > div > div > div > aside > div.side_categ
 
 
 # Boucle principale sur chaque url de category
-for category_url in category_list_url[:3]:
+for category_url in category_list_url[:]:
 
     # Liste des pages d'une catégorie (incrémenter si présence page suivante)
     url_list = [category_url]
