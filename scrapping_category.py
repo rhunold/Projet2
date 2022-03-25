@@ -8,12 +8,6 @@ url = "https://books.toscrape.com/catalogue/category/books/childrens_11/"
 # Liste des pages d'une catégorie (incrémenter si présence page suivante)
 url_list = [url]
 
-# fonction pour récupérer les url des livres de la page
-def getLinkList():
-    for link in soup.select('h3 > a'):
-        link_list.append("http://books.toscrape.com/catalogue/"+ link.get('href')[9:])  
-   
-
 # list des url des livres de la category
 link_list = []
 
@@ -28,19 +22,16 @@ while url in url_list:
 
     nextpage = soup.find("li", class_="next")
 
+    for link in soup.select('h3 > a'):
+        link_list.append("http://books.toscrape.com/catalogue/"+ link.get('href')[9:])  
+
     if nextpage:
         url = url_list[0] + nextpage.find('a')['href']
         url_list.append(url)
-        
-        # for pages with next pagination
-        getLinkList()   
 
     else:
-        # if only one page  or last page of categorie (no nextpage)
-        getLinkList()            
+        # if only one page or last page of categorie (no nextpage)
         break
-
-
 
 # Creation de listes vides pour conserver data scrappées des livres d'une catégory
 title_list = []

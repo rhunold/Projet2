@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-from os.path  import basename
-import os
+from os.path import basename
+from os import mkdir
 
 
 #On créer un dossier csv et images pour stocker les données que l'on va scrapper
@@ -10,7 +10,7 @@ paths = ["csv", "images"]
 
 for path in paths:
     try:
-        os.mkdir(path)
+        mkdir(path)
     except OSError:
         print ("La creation du dossier %s n'a pas marché soit parce qu'il y a eu un problème, soit parce qu'il existe déjà." % path)
     else:
@@ -33,16 +33,10 @@ for category in soup.select('#default > div > div > div > aside > div.side_categ
 
 
 # Boucle principale sur chaque url de category
-for category_url in category_list_url[:]:
+for category_url in category_list_url[:3]:
 
     # Liste des pages d'une catégorie (incrémenter si présence page suivante)
     url_list = [category_url]
-
-    # fonction pour récupérer les url des livres de la page
-    def getLinkList():
-        for link in soup.select('h3 > a'):
-            link_list.append("http://books.toscrape.com/catalogue/"+ link.get('href')[9:])  
-    
 
     # liste des url des livres de la category
     link_list = []
@@ -57,17 +51,17 @@ for category_url in category_list_url[:]:
         soup = BeautifulSoup(page, "html.parser")
 
         nextpage = soup.find("li", class_="next")
+        
+        for link in soup.select('h3 > a'):
+            link_list.append("http://books.toscrape.com/catalogue/"+ link.get('href')[9:])
 
         if nextpage:
             category_url = url_list[0] + nextpage.find('a')['href']
             url_list.append(category_url)
-            
-            # for pages with next pagination
-            getLinkList()   
+       
 
         else:
-            # if only one page  or last page of categorie (no nextpage)
-            getLinkList()                  
+            # if only one page  or last page of categorie (no nextpage)                
             break
 
         
