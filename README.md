@@ -17,11 +17,11 @@ On peut :
 Pour scrapping_product.py et scrapping_category.py, les fichiers csv sont générés dans le même dossier que les scripts.
 
 Pour scrapping_final.py, un csv est généré pour chaque catégorie dans le dossier "csv" qui est généré.
-Par ailleurs, le fichier scrapping_final.py va egalement télécharger les images des pages produit et les mettre dans le dossier "images".
+Par ailleurs, le fichier scrapping_final.py va egalement télécharger les images des pages produit et les mettre dans le dossier "images" généré.
 
 
 ## Liste d'améliorations possibles
 - utiliser les import pour éviter de remettre certaines portions de code dans les 3 scripts
 - dans le nom des fichiers csv, remplacer certains caractères par d'autres caractères (un espace est remplacé par un underscore par exemple)
 - Renommer les images téléchargées en utilisant le titre du livre (et en remplaçant certains caractères comme l'espace)
-- Dans le titre des fichiers csv, indiquer le nombre de livre de la catégorie et la date de création du fichier
+- Dans le titre des fichiers csv, indiquer le nombre de livres de la catégorie et la date de création du fichier
