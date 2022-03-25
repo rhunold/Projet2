@@ -6,7 +6,7 @@ from os import mkdir
 
 
 #On créer un dossier csv et images pour stocker les données que l'on va scrapper
-paths = ["csv", "images"]
+paths = ["scrapping_final_csv", "scrapping_final_images"]
 
 for path in paths:
     try:
