@@ -19,6 +19,12 @@ Pour scrapping_product.py et scrapping_category.py, les fichiers csv sont géné
 Pour scrapping_final.py, un csv est généré pour chaque catégorie dans le dossier "csv" qui est généré.
 Par ailleurs, le fichier scrapping_final.py va egalement télécharger les images des pages produit et les mettre dans le dossier "images" généré.
 
+## Lancer les scripts
+
+Pour lancer les scripts, il faut écrire dans le terminal :
+- "python3 scrappring_product.py"
+- "python3 scrapping_category.py"
+- "python3 scrapping_final.py"
 
 ## Liste d'améliorations possibles
 - utiliser les import pour éviter de remettre certaines portions de code dans les 3 scripts
